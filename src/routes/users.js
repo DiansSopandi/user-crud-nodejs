@@ -10,7 +10,7 @@ const router = Router();
 
 /*
 *   @description  to create a new user account  
-*   @api    /users/routes/register
+*   @api    /users
 *   @access public
 *   @type   POST
 */
@@ -19,7 +19,7 @@ router.post('', RegisterValidations, validator, register);
 
 /*
 *   @description  to verify a new user account via email
-*   @api    /users/routes/verify/:verificationCode
+*   @api    /users/verify/:verificationCode
 *   @access public <via Email>
 *   @type   GET
 */
@@ -27,8 +27,8 @@ router.post('', RegisterValidations, validator, register);
 router.get('/verify/:verificationCode',verify);
 
 /*
-*   @description  to authenticate/login an user and get auth token
-*   @api    /users/routes/login
+*   @description  to authenticate ot login an user and get auth token
+*   @api    /users/login
 *   @access public 
 *   @type   POST
 */
@@ -37,7 +37,7 @@ router.post('/login',AuthenticateValidations, validator, authenticate);
 
 /*
 *   @description  to get the authenticated an user's profiles
-*   @api    /users/routes/authenticate
+*   @api    /users/authenticate
 *   @access private 
 *   @type   GET    
 */
@@ -52,7 +52,18 @@ router.get('/authenticate',
                 })
             });
 
+/**
+* @description to get All user
+* @Api /users
+* @Type GET
+*/
 router.get('', usersList);
+
+/**
+* @description to delete specific user
+* @Api /users/:id
+* @Type DELETE
+ */
 router.delete('/:id', userDelete);
 
 export default router;

@@ -10,20 +10,14 @@ import { DB,PORT,DOMAIN } from './constants';
 // Router import
 import userRoutes from './routes/users';
 
-// import passport middleware
-// require('./middlewares/passport-middleware');
-// import passportMiddleware from './middlewares/passport-middleware';
 // initialize express application
 const app = express();
 
-//Apply Application Middleware
-// app.use(cors({origin:'http://localhost:3000'}));
 app.use(cors());
 app.use(json());
 app.use(express.urlencoded({extended:true}));
 app.use(passport.initialize());
-// app.use(passportMiddleware);
-// inject sub Routes Users
+
 app.get('/',(req,res)=>{res.send('Test Root route')});
 
 
