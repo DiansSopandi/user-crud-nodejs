@@ -25,11 +25,7 @@ app.use(passport.initialize());
 // app.use(passportMiddleware);
 // inject sub Routes Users
 app.get('/',(req,res)=>{res.send('Test Root route')});
-// app.use((req,res,next)=>{
-//     console.log(req.method);
-//     console.log('Verifying request');
-//     // next();
-// });
+
 
 app.use('/users',userRoutes);
 
